@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Download, Trash2 } from "lucide-react";
 import * as XLSX from "xlsx";
 
-// 👇 Bouton intégré localement
+// ✅ Bouton intégré dans le même fichier
 function Button({ children, onClick, className = "", ...props }) {
   return (
     <button
@@ -15,13 +15,31 @@ function Button({ children, onClick, className = "", ...props }) {
   );
 }
 
-// 👇 Cartes intégrées localement
+// ✅ Cartes intégrées dans le même fichier
 function Card({ children, className = "" }) {
   return <div className={`bg-white p-4 rounded-xl shadow ${className}`}>{children}</div>;
 }
 
 function CardContent({ children, className = "" }) {
   return <div className={className}>{children}</div>;
+}
+
+// Ton composant principal Dashboard
+export default function Dashboard() {
+  return (
+    <div className="min-h-screen p-6">
+      <h1 className="text-2xl font-bold mb-4">Dashboard RDV</h1>
+      <Button onClick={() => alert("Clicked!")}>Exemple de bouton</Button>
+
+      <div className="mt-6">
+        <Card>
+          <CardContent>
+            <p>Ceci est une carte avec du contenu à l'intérieur.</p>
+          </CardContent>
+        </Card>
+      </div>
+    </div>
+  );
 }
 
 
