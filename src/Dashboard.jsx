@@ -1,8 +1,29 @@
 import { useState } from "react";
-import { Button } from "@/components/ui/button.jsx";
-import { Card, CardContent } from "@/components/ui/card.jsx";
 import { Download, Trash2 } from "lucide-react";
 import * as XLSX from "xlsx";
+
+// 👇 Bouton intégré localement
+function Button({ children, onClick, className = "", ...props }) {
+  return (
+    <button
+      onClick={onClick}
+      className={`px-4 py-2 rounded bg-blue-600 text-white hover:bg-blue-700 transition ${className}`}
+      {...props}
+    >
+      {children}
+    </button>
+  );
+}
+
+// 👇 Cartes intégrées localement
+function Card({ children, className = "" }) {
+  return <div className={`bg-white p-4 rounded-xl shadow ${className}`}>{children}</div>;
+}
+
+function CardContent({ children, className = "" }) {
+  return <div className={className}>{children}</div>;
+}
+
 
 const agentsInit = [];
 
